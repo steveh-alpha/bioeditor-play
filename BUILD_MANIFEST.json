@@ -1,8 +1,8 @@
 {
   "source_repository": "steveh-alpha/BioEditor",
-  "source_sha": "dcc615c05ce2c8c29e092a6246e1265970440fa5",
+  "source_sha": "f8d5e0fb2ce55c462b0b34aa9e3a5dab65781b53",
   "source_build_sha256": {
-    "app.js": "080f392085336412effe79c226f1459a55c9f115bd2d4a3f5065261adfae85de",
+    "app.js": "2d0176b7134c198273940df53c8c7187c9f7e3491a694cedc3e32ede66f87f03",
     "assets/README.md": "a611509f72c93f0dbe2e747505ee26f23e7186d08febe17b8f4ca437f3fc6cd3",
     "assets/antibody.js": "edfdf3e7408e10504c5d4d981e6e127b85cf534822c082f3afa1d6c1ea04f98a",
     "assets/biology.js": "a0b7a4965f4b176d2667e41e086877a36a4847c2e474fd4a3b36e349ee027634",
@@ -21,14 +21,14 @@
     "editor/edits.js": "3a301bb8c2e39c1391f333d773301789c376dea2cfecdb71949bb7e1eaaa75d1",
     "editor/storage.js": "0b85d1343d95da7cd5fc69e9876ba04a135a2cdef7bbd66aa0e3c7dec6a1fc71",
     "editor/workspaces.js": "e953e368f6bb77c8db82289b24446b0559b4274457c3b23d1381332ee58292e2",
-    "editor.html": "3e0921313d758dcd9a5365ad46b034c97da23b49ef7c889a2478d1931f9e9356",
+    "editor.html": "a5cf1dd5b85a4b5b1d7c8ffad3f10f6ef45f8ea7fa11e09a70cc5b02dc9f55cd",
     "home.css": "cf94b20cb10b9dee5b213dd43ea14bb8c59c8f03d649fad6b225f66980ede785",
     "home.js": "8bef34c341ddd8c1423e335d70f61ffbc693bae3e68c2db8a09cedbb8f5e70c2",
     "illustrations.css": "2c542be190c1b4c94e2b361fd93e360906ac9550d7779a8b3cca14ddba52170b",
     "illustrations.html": "ec066126fa05a16d4aa17476a8dcfb06b10490f2f404952587fcff15a4a616cd",
-    "index.html": "3c3e6da7e7f10bcc81a8482e3ad7de36310c5ca7abd052bf699ac95933d7e571",
+    "index.html": "c734a6006f1a25172ae88d166bb40f65da70ec73b0181d57bfa9e3ab148b98c2",
     "studio.js": "eebe796a8a3b1702ca25c09de3d8ce44b2cbbd7d7dee327de44250ce6733f234",
-    "style.css": "5e4a42e3cef9c05dc71bbc537083b0ea3fc89de07c35efdd4a3bdb60fcb9e0ea",
+    "style.css": "0e7e129b1ccffef5f91c89ad2d57faf2ffbcbfd21c28fd063aedcd2640564f55",
     "svg.js": "3c7480117545a5dbcfabc6171d586c237397581efc5860427e7c98c4c4f5ece2",
     "templates/README.md": "9477bd6198182f81f70c6030a6fba26af7560e0b1051530796cec43848e49478",
     "templates/antibodies.js": "1f7ca107e7d10640ab8726fb6c3982c5780383296a59cb4364d78622e28495ec",
@@ -40,12 +40,12 @@
     "ui/illustration-atlas.js": "0f9aecebecd8302273739b9ed5cb4c22b04ae3fada7517eb8c223a2ad0035455",
     "ui/studio.js": "cfd6725a606533da2634e569bd40be34ef459581ec46348f7721df0a6ba50fbb",
     "ui/trial.js": "2affe0d4e73d4c66e94f2783cc3453a2f13c97cdd12f25ca3dfd42464e76ab0a",
-    "ui/workspaces.js": "5313fe9883174da9660cecef5909c3b8c5007d137b63a1c3821a7e4c7c14efee"
+    "ui/workspaces.js": "e3ad5799e63f9be638b16d7a470e22915b7ddb5e5edfb16ac0a6488e4120c013"
   },
   "hosting": {
     "editor_root": "index.html is an exact copy of source editor.html",
     "homepage": "marketing/index.html",
-    "public_assets": "/marketing/releases/dcc615c05ce2c8c29e092a6246e1265970440fa5/",
+    "public_assets": "/marketing/releases/f8d5e0fb2ce55c462b0b34aa9e3a5dab65781b53/",
     "adaptations": "Marketing HTML URLs and legacy workspace navigation point to their hosted routes; root JavaScript and CSS are exact build copies."
   }
 }

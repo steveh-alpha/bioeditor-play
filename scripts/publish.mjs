@@ -19,7 +19,7 @@ await cp(build,marketing,{recursive:true,filter:path=>path!==join(build,'editor.
 await rm(join(marketing,'editor.html'),{force:true});
 for(const name of ['index.html','illustrations.html']){
   let html=await readFile(join(build,name),'utf8');
-  html=html.replace(/href="editor\.html"/g,'href="https://editor.vaelise.com/"');
+  html=html.replace(/href="editor\.html([?#][^"]*)?"/g,(_,suffix='')=>`href="https://editor.vaelise.com/${suffix}"`);
   html=html.replace(/(href|src)="([^"#]+)"/g,(match,attr,url)=>{
     if(/^(?:[a-z]+:|\/)/i.test(url))return match;
     return `${attr}="${prefix}${url}"`;
