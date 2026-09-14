@@ -1,8 +1,8 @@
 {
   "source_repository": "steveh-alpha/BioEditor",
-  "source_sha": "59ceeeb301a040461a3798a95c90a491ada77aa8",
+  "source_sha": "c7d51ccd763c7bb61b68109a8da244df746aca75",
   "source_build_sha256": {
-    "app.js": "ca5bb3f6c8c894fdcc5b7386539f076dcc440f17f7c9debf39f7fc72a694b82e",
+    "app.js": "b950f38076010787e5d89b9e8dad6af0cbb7ea05fd53534d256a743e0010c1f3",
     "assets/README.md": "a611509f72c93f0dbe2e747505ee26f23e7186d08febe17b8f4ca437f3fc6cd3",
     "assets/antibody.js": "edfdf3e7408e10504c5d4d981e6e127b85cf534822c082f3afa1d6c1ea04f98a",
     "assets/biology.js": "a0b7a4965f4b176d2667e41e086877a36a4847c2e474fd4a3b36e349ee027634",
@@ -22,7 +22,8 @@
     "editor/selection.js": "c80114dcc593dd0238451d7d0d6e36957c958e35dbd2bf78e2d7cda764babd09",
     "editor/storage.js": "0b85d1343d95da7cd5fc69e9876ba04a135a2cdef7bbd66aa0e3c7dec6a1fc71",
     "editor/workspaces.js": "e953e368f6bb77c8db82289b24446b0559b4274457c3b23d1381332ee58292e2",
-    "editor.html": "8b87c4eae9b5b3fc4af518d5e69ce7536e77f1e9a645e77a8ce011d25a99a742",
+    "editor.html": "dcc51c6f11375cc4da22de07c0d1f942133d2c53be22bdac31a280a5be6dabf5",
+    "feedback.js": "c6bf702ab3164925cccdd1e69e4ac4b6c1cce6544c21751ed68b2ef6ea7c3dda",
     "home.css": "cf94b20cb10b9dee5b213dd43ea14bb8c59c8f03d649fad6b225f66980ede785",
     "home.js": "8bef34c341ddd8c1423e335d70f61ffbc693bae3e68c2db8a09cedbb8f5e70c2",
     "illustrations.css": "2c542be190c1b4c94e2b361fd93e360906ac9550d7779a8b3cca14ddba52170b",
@@ -46,7 +47,7 @@
   "hosting": {
     "editor_root": "index.html is an exact copy of source editor.html",
     "homepage": "marketing/index.html",
-    "public_assets": "/marketing/releases/59ceeeb301a040461a3798a95c90a491ada77aa8/",
+    "public_assets": "/marketing/releases/c7d51ccd763c7bb61b68109a8da244df746aca75/",
     "adaptations": "Marketing HTML URLs and legacy workspace navigation point to their hosted routes; root JavaScript and CSS are exact build copies."
   }
 }
