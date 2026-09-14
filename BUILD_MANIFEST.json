@@ -1,8 +1,8 @@
 {
   "source_repository": "steveh-alpha/BioEditor",
-  "source_sha": "f8d5e0fb2ce55c462b0b34aa9e3a5dab65781b53",
+  "source_sha": "59ceeeb301a040461a3798a95c90a491ada77aa8",
   "source_build_sha256": {
-    "app.js": "2d0176b7134c198273940df53c8c7187c9f7e3491a694cedc3e32ede66f87f03",
+    "app.js": "ca5bb3f6c8c894fdcc5b7386539f076dcc440f17f7c9debf39f7fc72a694b82e",
     "assets/README.md": "a611509f72c93f0dbe2e747505ee26f23e7186d08febe17b8f4ca437f3fc6cd3",
     "assets/antibody.js": "edfdf3e7408e10504c5d4d981e6e127b85cf534822c082f3afa1d6c1ea04f98a",
     "assets/biology.js": "a0b7a4965f4b176d2667e41e086877a36a4847c2e474fd4a3b36e349ee027634",
@@ -19,9 +19,10 @@
     "editor/clipboard.js": "53afb6279d83237d1b605d532c29870738d0b1cd8bd8611cfc7de9f68f6710a5",
     "editor/connections.js": "6689d25242f1a7fcc7a2a9c32c688ea578608de49f70761fb5322a55bb664d77",
     "editor/edits.js": "3a301bb8c2e39c1391f333d773301789c376dea2cfecdb71949bb7e1eaaa75d1",
+    "editor/selection.js": "c80114dcc593dd0238451d7d0d6e36957c958e35dbd2bf78e2d7cda764babd09",
     "editor/storage.js": "0b85d1343d95da7cd5fc69e9876ba04a135a2cdef7bbd66aa0e3c7dec6a1fc71",
     "editor/workspaces.js": "e953e368f6bb77c8db82289b24446b0559b4274457c3b23d1381332ee58292e2",
-    "editor.html": "a5cf1dd5b85a4b5b1d7c8ffad3f10f6ef45f8ea7fa11e09a70cc5b02dc9f55cd",
+    "editor.html": "8b87c4eae9b5b3fc4af518d5e69ce7536e77f1e9a645e77a8ce011d25a99a742",
     "home.css": "cf94b20cb10b9dee5b213dd43ea14bb8c59c8f03d649fad6b225f66980ede785",
     "home.js": "8bef34c341ddd8c1423e335d70f61ffbc693bae3e68c2db8a09cedbb8f5e70c2",
     "illustrations.css": "2c542be190c1b4c94e2b361fd93e360906ac9550d7779a8b3cca14ddba52170b",
@@ -39,13 +40,13 @@
     "ui/diagram-tools.js": "f1ceee1c0c1c4e31dde1c7500035dddbe62a52eabb2a44e19d2692b86f3397bb",
     "ui/illustration-atlas.js": "0f9aecebecd8302273739b9ed5cb4c22b04ae3fada7517eb8c223a2ad0035455",
     "ui/studio.js": "cfd6725a606533da2634e569bd40be34ef459581ec46348f7721df0a6ba50fbb",
-    "ui/trial.js": "2affe0d4e73d4c66e94f2783cc3453a2f13c97cdd12f25ca3dfd42464e76ab0a",
+    "ui/trial.js": "a3af6fbe028fa1ba04edecdd09886873c3b5f03e14cfa5035a90f17ba4aa81b1",
     "ui/workspaces.js": "e3ad5799e63f9be638b16d7a470e22915b7ddb5e5edfb16ac0a6488e4120c013"
   },
   "hosting": {
     "editor_root": "index.html is an exact copy of source editor.html",
     "homepage": "marketing/index.html",
-    "public_assets": "/marketing/releases/f8d5e0fb2ce55c462b0b34aa9e3a5dab65781b53/",
+    "public_assets": "/marketing/releases/59ceeeb301a040461a3798a95c90a491ada77aa8/",
     "adaptations": "Marketing HTML URLs and legacy workspace navigation point to their hosted routes; root JavaScript and CSS are exact build copies."
   }
 }
