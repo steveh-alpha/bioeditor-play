@@ -1,1 +1,170 @@
-PLACEHOLDER
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BioEditor — Vaelise</title>
+<meta name="description" content="Easy to build, biology-correct parts, stays on your machine. Alpha — internal testing only.">
+<style>
+:root{
+  --ink:#1c1916; --muted:#6b6259; --paper:#f7f1e8; --line:#e4d8c8;
+  --copper:#b85a2a; --copper-deep:#8f3f1a; --card:#fffefb;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Georgia,"Times New Roman",serif;background:var(--paper);color:var(--ink);line-height:1.55}
+a{color:var(--copper-deep)}
+header{
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  padding:1rem 1.25rem;border-bottom:1px solid var(--line);background:rgba(247,241,232,.92);
+  position:sticky;top:0;backdrop-filter:blur(8px);z-index:10;
+}
+.brand{display:flex;align-items:center;gap:.55rem;text-decoration:none;color:var(--ink);font-size:1.05rem}
+.mark{
+  width:1.55rem;height:1.55rem;border-radius:7px;background:linear-gradient(145deg,#2f9e6a,#1f7a4d);
+  color:#fff;font-family:system-ui,sans-serif;font-weight:800;font-size:.95rem;
+  display:grid;place-items:center;
+}
+.nav{display:flex;align-items:center;gap:.75rem;font-family:system-ui,sans-serif;font-size:.9rem}
+.nav a.ghost{color:var(--muted);text-decoration:none;padding:.45rem .7rem}
+.nav a.ghost:hover{color:var(--ink)}
+.btn{
+  display:inline-block;font-family:system-ui,sans-serif;font-weight:700;text-decoration:none;
+  background:var(--copper);color:#fff;padding:.75rem 1.15rem;border-radius:999px;border:0;cursor:pointer;
+}
+.btn:hover{background:var(--copper-deep)}
+.btn.secondary{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.btn.secondary:hover{border-color:var(--muted)}
+.wrap{max-width:52rem;margin:0 auto;padding:3.2rem 1.25rem 4.5rem}
+.hero{display:grid;gap:1.25rem;margin-bottom:2.6rem}
+.hero h1{font-size:clamp(2.1rem,5.5vw,3.15rem);line-height:1.12;font-weight:600;margin:0;letter-spacing:-.02em}
+.lede{font-family:system-ui,sans-serif;font-size:1.12rem;color:var(--muted);margin:0;max-width:36rem}
+.cta-row{display:flex;flex-wrap:wrap;gap:.7rem;align-items:center;margin-top:.35rem}
+.note{font-family:system-ui,sans-serif;font-size:.85rem;color:var(--muted)}
+.tag{
+  display:inline-block;font-family:system-ui,sans-serif;font-size:.78rem;font-weight:700;
+  color:var(--copper);letter-spacing:.02em;
+}
+h2{
+  font-family:system-ui,sans-serif;font-size:.78rem;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--muted);font-weight:700;margin:0 0 1rem;
+}
+.benefits{display:grid;gap:.75rem;margin:0 0 2.4rem}
+.benefits li{
+  font-family:system-ui,sans-serif;list-style:none;background:#fff;border:1px solid var(--line);
+  border-radius:14px;padding:1rem 1.1rem;color:var(--ink);font-size:.98rem;
+}
+.benefits ul{margin:0;padding:0;display:grid;gap:.75rem}
+.benefits strong{font-weight:700}
+.demo{
+  background:var(--card);border:1px solid var(--line);border-radius:18px;padding:1.1rem;
+  box-shadow:0 10px 30px rgba(28,25,22,.04);margin:0 0 2.4rem;
+}
+.demo-head{display:flex;justify-content:space-between;gap:1rem;align-items:baseline;margin-bottom:.85rem}
+.demo-head p{margin:0;font-family:system-ui,sans-serif;font-size:.9rem;color:var(--muted)}
+.figure{
+  border-radius:14px;background:#fffcf5;border:1px solid var(--line);padding:1rem 1rem 1.1rem;overflow:auto;
+}
+.figure svg{width:100%;height:auto;display:block}
+.library{
+  font-family:system-ui,sans-serif;background:#fff;border:1px solid var(--line);border-radius:14px;
+  padding:1.15rem 1.2rem;margin:0 0 2.4rem;color:var(--muted);font-size:.98rem;
+}
+.library strong{color:var(--ink)}
+.status{
+  font-family:system-ui,sans-serif;border-left:3px solid var(--copper);padding:.2rem 0 .2rem 1rem;
+  color:var(--muted);margin:0 0 2.4rem;font-size:.95rem;
+}
+footer{
+  font-family:system-ui,sans-serif;font-size:.88rem;color:var(--muted);
+  border-top:1px solid var(--line);padding:1.4rem 1.25rem 2rem;max-width:52rem;margin:0 auto;
+}
+footer a{color:var(--muted)}
+</style>
+</head>
+<body>
+<header>
+  <a class="brand" href="/"><span class="mark">b</span> BioEditor <span class="tag" style="margin-left:.35rem">Alpha</span></a>
+  <nav class="nav">
+    <a class="ghost" href="#demo">Demo</a>
+    <a class="btn" href="https://app.bioeditor.vaelise.com/">Open editor (internal)</a>
+  </nav>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <p class="tag">Vaelise Studio · local-first</p>
+    <h1>Beautiful scientific figures, without fighting PowerPoint.</h1>
+    <p class="lede">Easy to build, biology-correct parts, stays on your machine.</p>
+    <div class="cta-row">
+      <a class="btn" href="https://app.bioeditor.vaelise.com/">Open editor (internal)</a>
+      <a class="btn secondary" href="#demo">See a sample figure</a>
+    </div>
+    <p class="note">Editor access is email OTP for the Vaelise team. This page is public.</p>
+  </section>
+
+  <h2>Benefits</h2>
+  <div class="benefits">
+    <ul>
+      <li><strong>Editable MoA packs:</strong> antibodies, engagers, ADC, CAR, RIPTAC, and virus/VLP.</li>
+      <li><strong>Edit the parts.</strong> Change formats and pieces, not just drop a finished template.</li>
+      <li><strong>Local-first.</strong> Work stays on your machine.</li>
+    </ul>
+  </div>
+
+  <h2>Status</h2>
+  <p class="status">Alpha. Internal testing only. Artwork is scientific-review-pending.</p>
+
+  <h2>What’s in the library</h2>
+  <p class="library"><strong>~178 components</strong> and <strong>~36 templates</strong> across immunoglobulins, antibody formats, engagers/BiTE, ADC/BsADC, CAR (ex vivo and in vivo), RIPTAC, and virus/VLP.</p>
+
+  <h2 id="demo">Simple demo</h2>
+  <section class="demo" aria-label="Sample figure gallery">
+    <div class="demo-head">
+      <p>Read-only sample — Engineering T cells workflow</p>
+      <p>Not the full editor</p>
+    </div>
+    <div class="figure">
+      <svg viewBox="0 0 960 420" role="img" aria-label="Sample schematic: isolate T cells, engineer with CRISPR, expand and characterize">
+        <rect x="0" y="0" width="960" height="420" fill="#fffcf5"/>
+        <text x="48" y="52" font-family="Georgia, serif" font-size="28" fill="#1c1916">Engineering T cells</text>
+        <text x="48" y="82" font-family="system-ui,sans-serif" font-size="15" fill="#6b6259">A cell-engineering workflow · sample figure</text>
+        <rect x="48" y="120" width="240" height="220" rx="18" fill="#d8efe3" stroke="#c3ddd0"/>
+        <text x="72" y="158" font-family="system-ui,sans-serif" font-size="13" font-weight="700" fill="#3d6b55">1 · ISOLATE</text>
+        <text x="72" y="188" font-family="Georgia, serif" font-size="22" fill="#1c1916">Isolate T cells</text>
+        <circle cx="168" cy="268" r="42" fill="#fff" stroke="#2f9e6a" stroke-width="3"/>
+        <circle cx="168" cy="268" r="18" fill="#2f9e6a"/>
+        <path d="M300 230 H340" stroke="#b85a2a" stroke-width="3" marker-end="url(#arrow)"/>
+        <rect x="360" y="120" width="240" height="220" rx="18" fill="#d6e6f5" stroke="#c2d4e8"/>
+        <text x="384" y="158" font-family="system-ui,sans-serif" font-size="13" font-weight="700" fill="#3d5a78">2 · ENGINEER</text>
+        <text x="384" y="188" font-family="Georgia, serif" font-size="22" fill="#1c1916">Engineer with CRISPR</text>
+        <ellipse cx="480" cy="268" rx="54" ry="36" fill="#fff" stroke="#3d7ecc" stroke-width="3"/>
+        <path d="M450 268 q15 -22 30 0 q15 22 30 0" fill="none" stroke="#3d7ecc" stroke-width="3"/>
+        <path d="M612 230 H652" stroke="#b85a2a" stroke-width="3" marker-end="url(#arrow)"/>
+        <rect x="672" y="120" width="240" height="220" rx="18" fill="#f0e4d0" stroke="#e0d0b4"/>
+        <text x="696" y="158" font-family="system-ui,sans-serif" font-size="13" font-weight="700" fill="#7a5c33">3 · EXPAND</text>
+        <text x="696" y="188" font-family="Georgia, serif" font-size="22" fill="#1c1916">Expand &amp; characterize</text>
+        <circle cx="792" cy="268" r="40" fill="#fff" stroke="#b85a2a" stroke-width="3"/>
+        <circle cx="776" cy="260" r="8" fill="#b85a2a"/>
+        <circle cx="800" cy="252" r="8" fill="#b85a2a"/>
+        <circle cx="808" cy="276" r="8" fill="#b85a2a"/>
+        <defs>
+          <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L6,3 L0,6 Z" fill="#b85a2a"/>
+          </marker>
+        </defs>
+      </svg>
+    </div>
+  </section>
+
+  <div class="cta-row">
+    <a class="btn" href="https://app.bioeditor.vaelise.com/">Open editor (internal)</a>
+    <p class="note">Vaelise team OTP · internal alpha</p>
+  </div>
+</main>
+
+<footer>
+  <a href="https://vaelise.com/">Vaelise</a> · BioEditor alpha ·
+  <a href="https://app.bioeditor.vaelise.com/">Open editor (internal)</a>
+</footer>
+</body>
+</html>
