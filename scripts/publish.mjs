@@ -14,7 +14,9 @@ await cp(build,target,{recursive:true});
 // Existing editor hostname uses the Pages root; public homepage uses marketing/.
 await cp(join(build,'editor.html'),join(target,'index.html'));
 await mkdir(marketing,{recursive:true});
-await cp(build,marketing,{recursive:true});
+await cp(build,marketing,{recursive:true,filter:path=>path!==join(build,'editor.html')});
+// The public marketing route links to Access rather than exposing another editor entry.
+await rm(join(marketing,'editor.html'),{force:true});
 for(const name of ['index.html','illustrations.html']){
   let html=await readFile(join(build,name),'utf8');
   html=html.replace(/href="editor\.html"/g,'href="https://editor.vaelise.com/"');
