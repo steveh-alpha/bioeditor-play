@@ -6,7 +6,7 @@ import {ANTIBODY_TEMPLATES,makeAntibodyTemplate} from './templates/antibodies.js
 import {DIAGRAM_TEMPLATES,composeDiagram} from './templates/diagrams.js';
 import {synchronizeConnections,validateConnections} from './editor/connections.js';
 import {structureParameters} from './assets/structures.js';
-import {dimensions,validateStudioFields,applyStyle} from './studio.js';
+import {templateReferences,dimensions,validateStudioFields,applyStyle} from './studio.js';
 import {ASSETS,COLORS,glyph,assetRecord,ILLUSTRATION_VERSION,isLatestArtwork,isTechnicalArtwork} from './assets/library.js';
 import {escapeXML,wrapLabel} from './svg.js';
 export {ASSETS,COLORS,glyph,assetRecord,ILLUSTRATION_VERSION,isLatestArtwork,escapeXML};
@@ -98,11 +98,11 @@ export function refineIllustrations(d) {
  return next;
 }
 export function manifest(d){
- const template=TEMPLATES.find(t=>t.id===d.templateId&&t.id!=='blank'&&(d.templateVersion===undefined||t.version===d.templateVersion));
+ const templates=[...new Map(templateReferences(d).flatMap(ref=>{const template=TEMPLATES.find(t=>t.id===ref.id&&t.id!=='blank'&&(ref.version===undefined||t.version===ref.version));return template?[[template.id+'@'+template.version,template]]:[];})).values()];
  return {schemaVersion:'0.1',figureTitle:d.title,generatedAt:new Date().toISOString(),licenseNotice:'Listed library artwork: CC BY 4.0. This does not automatically license the entire figure.',
  provenanceNotice:'Library origin records are project authorship declarations, not independent rights clearance.',artboard:dimensions(d),background:d.background||'#ffffff',styleId:d.styleId||null,
  assets:[...new Map(d.nodes.filter(n=>n.type==='asset'||n.type==='part').map(n=>{const a=assetRecord(n.assetId,n.artworkVersion);return [a.id+'@'+a.version,a];})).values()].map(a=>({...a,licenseUrl:'https://creativecommons.org/licenses/by/4.0/',modifications:'Composed, positioned, scaled, and possibly recolored in this figure.'})),
- templates:template?[{id:template.id,name:template.name,version:template.version,creator:'BioEditor project',source:`BioEditor original template library v${template.version}`,license:'CC-BY-4.0',licenseUrl:'https://creativecommons.org/licenses/by/4.0/',reviewStatus:'scientific-review-pending',modifications:'Template composition used as a starting point and possibly modified.'}]:[],
+ templates:templates.map(template=>({id:template.id,name:template.name,version:template.version,creator:'BioEditor project',source:`BioEditor original template library v${template.version}`,license:'CC-BY-4.0',licenseUrl:'https://creativecommons.org/licenses/by/4.0/',reviewStatus:'scientific-review-pending',modifications:'Template composition used as a starting point or copied in part, and possibly modified.'})),
  claims:d.claims||[],aiProvenance:d.aiProvenance||[]};
 }
 export function nodeMarkup(n){let body='';if(n.type==='asset'){const a=assetRecord(n.assetId,n.artworkVersion);body=`<g transform="scale(${n.w/100} ${n.h/100})">${glyph(a.kind,n.color,n.parameters,n.w/n.h,n.artworkVersion)}</g>`;}if(n.type==='part'){const a=assetRecord(n.assetId,n.artworkVersion),[x,y,w,h]=n.partBox;let shape=componentParts(a.kind,n.color,n.parameters,n.partAspect??1,n.artworkVersion,n.recolored)[n.partIndex].svg;if(n.recolored&&!isTechnicalArtwork(a.version))shape=shape.replace(/#[0-9a-f]{6}/gi,n.color);body=`<g transform="scale(${n.w/w} ${n.h/h})"><g transform="translate(${-x} ${-y})">${shape}</g></g>`;}if(n.type==='panel')body=`<rect width="${n.w}" height="${n.h}" rx="12" fill="${n.color}"/>`;if(n.type==='arrow')body=`<path d="M0 ${n.h/2}H${Math.max(0,n.w-10)}" stroke="${n.color}" stroke-width="2.5" fill="none"/><path d="M${n.w-11} ${n.h/2-5}L${n.w} ${n.h/2} ${n.w-11} ${n.h/2+5}" fill="${n.color}"/>`;if(n.type==='arrow'&&n.edgeStyle==='line')body=`<path d="M0 ${n.h/2}H${n.w}" stroke="${n.color}" stroke-width="2.5" fill="none"/>`;if(n.type==='arrow'&&n.edgeStyle==='inhibition')body=`<path d="M0 ${n.h/2}H${n.w-2}M${n.w-2} ${n.h/2-8}V${n.h/2+8}" stroke="${n.color}" stroke-width="2.5" fill="none"/>`;if(n.type==='text')body=`<text y="${n.fontSize}" font-family="Arial, sans-serif" font-size="${n.fontSize}" fill="${n.color}" font-weight="${n.fontSize>=22?'600':'400'}">${n.wrap?wrapLabel(n.label,n.w,n.fontSize).map((line,i)=>`<tspan x="0" dy="${i?n.fontSize*1.3:0}">${escapeXML(line)}</tspan>`).join(''):escapeXML(n.label)}</text>`;return `<g transform="translate(${n.x} ${n.y}) rotate(${n.rotation||0} ${n.w/2} ${n.h/2})" data-id="${escapeXML(n.id)}" class="object"><title>${escapeXML(n.label)}</title>${body}</g>`;}
