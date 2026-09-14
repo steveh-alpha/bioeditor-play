@@ -12,6 +12,11 @@ export const ARTBOARDS = [
   {name:'Poster · portrait', width:1800, height:2400}
 ];
 export const dimensions = d => ({width:d.width ?? 1200, height:d.height ?? 760});
+export function templateReferences(d) {
+  const refs=[...(d.sourceTemplates||[])];
+  if(d.templateId&&d.templateId!=='blank')refs.push({id:d.templateId,...(d.templateVersion!==undefined?{version:d.templateVersion}:{})});
+  return [...new Map(refs.map(ref=>[JSON.stringify([ref.id,ref.version]),ref])).values()];
+}
 export function validateStudioFields(d) {
   const {width,height}=dimensions(d);
   if (![width,height].every(v=>Number.isInteger(v)&&v>=100&&v<=6000)) throw Error('Artboard dimensions must be whole pixels from 100 to 6000.');
@@ -19,6 +24,7 @@ export function validateStudioFields(d) {
   if (d.styleId!==undefined&&!STYLES.some(s=>s.id===d.styleId)) throw Error('Unknown figure style.');
   if (d.templateId!==undefined&&(typeof d.templateId!=='string'||d.templateId.length>200)) throw Error('Invalid template reference.');
   if (d.templateVersion!==undefined&&(typeof d.templateVersion!=='string'||d.templateVersion.length>100)) throw Error('Invalid template version.');
+  if(d.sourceTemplates!==undefined&&(!Array.isArray(d.sourceTemplates)||d.sourceTemplates.length>200||d.sourceTemplates.some(ref=>!ref||typeof ref.id!=='string'||!ref.id||ref.id.length>200||(ref.version!==undefined&&(typeof ref.version!=='string'||ref.version.length>100)))))throw Error('Invalid copied template references.');
   if (d.aiProvenance!==undefined&&(!Array.isArray(d.aiProvenance)||d.aiProvenance.length>200)) throw Error('Invalid assistant provenance.');
   if (d.claims===undefined) return;
   if (!Array.isArray(d.claims)||d.claims.length>200) throw Error('A figure can contain up to 200 claims.');
@@ -91,7 +97,7 @@ export function preflight(d,attribution) {
   const pending=attribution.assets.filter(a=>a.reviewStatus!=='scientifically-reviewed');
   if(pending.length) add('asset-review',`${pending.length} library components await scientific review.`);
   if(attribution.assets.some(a=>!a.creator||!a.source||!a.license||!a.version)) add('asset-rights','Some component rights records are incomplete.');
-  if(d.templateId&&d.templateId!=='blank'&&!attribution.templates.length) add('template-rights','The declared template is unknown. Its artwork rights need review.');
+  if(templateReferences(d).some(ref=>!attribution.templates.some(t=>t.id===ref.id&&(ref.version===undefined||ref.version===t.version)))) add('template-rights','A declared template is unknown. Its artwork rights need review.');
   if(!(d.claims||[]).length) add('no-claims','No claims or sources are recorded. Add them if this figure makes scientific claims.');
   for(const claim of d.claims||[]) {
     if(!claim.source?.trim()) add('missing-source',`A claim has no source: ${claim.text.slice(0,90)}`);
