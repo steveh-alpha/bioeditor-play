@@ -7,7 +7,8 @@ export const RECOVERY_KEY='bioeditor.document.recovery';
 // Keep the legacy primary key readable by existing installations. A previous
 // valid save survives interrupted writes; damaged or conflicting data is never
 // replaced automatically. Storage is injected so failure paths can be tested.
-export function createStorage(getStorage) {
+export function createStorage(getStorage,key=STORAGE_KEY) {
+  const STORAGE_KEY=key,BACKUP_KEY=key+'.backup',RECOVERY_KEY=key+'.recovery';
   let expected=null,blocked=null;
   function load() {
     try {
@@ -20,7 +21,7 @@ export function createStorage(getStorage) {
         catch {blocked='recovery';}
       }
       if(backup!==null) {
-        try {blocked='recovery';return {document:parseDocument(backup),status:'recovery'};}
+        try {blocked='recovery';return {document:parseDocument(backup),status:'recovery';}
         catch {blocked='recovery';}
       }
       return {document:null,status:blocked||'new'};

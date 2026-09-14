@@ -36,10 +36,10 @@ export function validateConnections(d) {
 export function removeNodes(d,ids) {
   d.nodes=d.nodes.filter(n=>!ids.has(n.id)&&!ids.has(n.fromNodeId)&&!ids.has(n.toNodeId));
 }
-export function duplicateNodes(nodes) {
+export function duplicateNodes(nodes,offset=24) {
   const ids=new Map(nodes.map(n=>[n.id,crypto.randomUUID()])),groups=new Map();
   return nodes.map(n=>{
-    const copy=structuredClone(n);copy.id=ids.get(n.id);copy.x+=24;copy.y+=24;
+    const copy=structuredClone(n);copy.id=ids.get(n.id);copy.x+=offset;copy.y+=offset;
     if(n.group){if(!groups.has(n.group))groups.set(n.group,crypto.randomUUID());copy.group=groups.get(n.group);}
     if(n.fromNodeId){copy.fromNodeId=ids.get(n.fromNodeId)||n.fromNodeId;copy.toNodeId=ids.get(n.toNodeId)||n.toNodeId;}
     return copy;
